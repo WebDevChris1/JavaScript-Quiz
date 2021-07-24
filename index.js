@@ -98,8 +98,6 @@ function done() {
   if (correctAnswers < questions.howManyToPass) {
     passed.textContent = messages.passedNoText;
     passed.setAttribute("style", "color: red");
-    passed.setAttribute("class", "failed");
-    // retry.setAttribute("onClick", "renderQuestion()");
     document.body.appendChild(passed);
     document.body.appendChild(retry);
   } else {
