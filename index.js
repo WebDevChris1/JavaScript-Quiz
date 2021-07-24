@@ -4,6 +4,7 @@ const question = document.getElementById("question");
 const container = document.getElementById("container");
 const choices = document.getElementById("choices");
 const retryBtn = document.getElementById("retry-btn");
+
 // Create Elements
 const welcome = document.createElement("h1");
 const welcomDescription = document.createElement("p");
@@ -54,7 +55,6 @@ if (questionCounter < questions.howManyQuestions) {
   container.appendChild(welcome);
   container.appendChild(welcomDescription);
   container.appendChild(startBtn);
-  // renderQuestion();
 }
 
 // Render Questions

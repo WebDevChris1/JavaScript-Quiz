@@ -9,6 +9,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --buttonHoverColor: black;
+  --containerColor: white;
+  --borderColor: black;
+}
+
 /* General Styles */
 body {
   height: 100vh;
@@ -35,7 +41,8 @@ h5 {
 .container {
   height: 500px;
   width: 500px;
-  border: 1px solid black;
+  border: 1px solid var(--borderColor);
+  background-color: var(--containerColor);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -48,7 +55,7 @@ h5 {
 /* Options/Choices */
 .choice {
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid var(--borderColor);
   border-radius: 10px;
   padding: 20px 10px;
   width: 98%;
@@ -59,7 +66,7 @@ h5 {
 }
 
 .choice:hover {
-  background-color: black;
+  background-color: var(--buttonHoverColor);
   color: white;
 }
 
@@ -80,11 +87,11 @@ h5 {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid var(--borderColor);
   font-weight: bold;
 }
 
 .start-btn:hover {
-  background-color: black;
+  background-color: var(--buttonHoverColor);
   color: white;
 }
