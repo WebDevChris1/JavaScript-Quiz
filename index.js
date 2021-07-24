@@ -1,7 +1,16 @@
+// Grab Elements
 const qNum = document.getElementById("q-num");
 const question = document.getElementById("question");
 const container = document.getElementById("container");
 const choices = document.getElementById("choices");
+// Create Elements
+const welcome = document.createElement("h1");
+const welcomDescription = document.createElement("p");
+const startBtn = document.createElement("button");
+const msg = document.createElement("h4");
+const correctCount = document.createElement("h5");
+const passed = document.createElement("p");
+const retry = document.createElement("button");
 let questionCounter = 0;
 let correctAnswers = 0;
 
@@ -22,20 +31,44 @@ const questions = {
   choiceFour: ["Megaladon", "Ronald Reagen", "Taylor Swift"],
 };
 
+const messages = {
+  welcomeText: "Welcome!",
+  welcomeDescriptionText:
+    "Created this Quiz using JavaScript and my understanding of Dom Manipulation. Feel free to challenge yourself! Get 2 out of 3 questions correct to pass, Good Luck!",
+  startBtnText: "Start Quiz",
+  thankYouText: "Thank You For Participating!",
+  correctText: "Correct Answers: ",
+  passedNoText: "Failed",
+  passedYesText: "Passed",
+  retakeQuizText: "Retry?",
+};
+
 // Start Quiz
 if (questionCounter < questions.howManyQuestions) {
-  renderQuestion();
+  welcome.textContent = messages.welcomeText;
+  startBtn.textContent = messages.startBtnText;
+  welcomDescription.textContent = messages.welcomeDescriptionText;
+  startBtn.setAttribute("onClick", "renderQuestion()");
+  startBtn.setAttribute("class", "start-btn");
+  welcomDescription.setAttribute("class", "welcome-description");
+  container.appendChild(welcome);
+  container.appendChild(welcomDescription);
+  container.appendChild(startBtn);
+  // renderQuestion();
 }
 
 // Render Questions
 function renderQuestion() {
+  startBtn.remove();
+  welcome.remove();
+  welcomDescription.remove();
   qNum.textContent = questions.questionNum[questionCounter];
   question.textContent = questions.question[questionCounter];
   choices.innerHTML = `
-  <button id="1" class="choice one" onClick="selection(this.id)"><li>A. ${questions.choiceOne[questionCounter]}</li></button>
-  <button id="2" class="choice two" onClick="selection(this.id)"><li>B. ${questions.choiceTwo[questionCounter]}</li></button>
-  <button id="3" class="choice three" onClick="selection(this.id)"><li>C. ${questions.choiceThree[questionCounter]}</li></button>
-  <button id="4" class="choice four" onClick="selection(this.id)"><li>D. ${questions.choiceFour[questionCounter]}</li></button>
+  <button id="1" class="choice" onClick="selection(this.id)"><li>A. ${questions.choiceOne[questionCounter]}</li></button>
+  <button id="2" class="choice" onClick="selection(this.id)"><li>B. ${questions.choiceTwo[questionCounter]}</li></button>
+  <button id="3" class="choice" onClick="selection(this.id)"><li>C. ${questions.choiceThree[questionCounter]}</li></button>
+  <button id="4" class="choice" onClick="selection(this.id)"><li>D. ${questions.choiceFour[questionCounter]}</li></button>
   `;
 }
 
@@ -57,28 +90,29 @@ function selection(btnOption) {
 
 // Display pass or fail
 function done() {
-  const msg = document.createElement("h4");
-  const correctCount = document.createElement("h5");
-  const passed = document.createElement("p");
-  const msgText = document.createTextNode("Thank You For Participating!");
-  const msgTextCorrect = document.createTextNode(
-    `Correct Answers: ${correctAnswers}`
-  );
-  const passedYes = document.createTextNode("Passed");
-  const passedNo = document.createTextNode("Failed");
-  container.setAttribute("style", "display: none");
-  msg.appendChild(msgText);
-  correctCount.appendChild(msgTextCorrect);
+  container.remove();
+  msg.textContent = messages.thankYouText;
+  correctCount.textContent = messages.correctText + correctAnswers;
   document.body.appendChild(msg);
   document.body.appendChild(correctCount);
-
   if (correctAnswers < questions.howManyToPass) {
-    passed.appendChild(passedNo);
+    passed.textContent = messages.passedNoText;
     passed.setAttribute("style", "color: red");
+    passed.setAttribute("class", "failed");
+    retry.setAttribute("class", "retry-btn");
+    // retry.setAttribute("onClick", "renderQuestion()");
     document.body.appendChild(passed);
+    retry.innerHTML = `<i class="fas fa-redo"></i>`;
+    document.body.appendChild(retry);
   } else {
-    passed.appendChild(passedYes);
+    passed.textContent = messages.passedYesText;
     document.body.appendChild(passed);
     passed.setAttribute("style", "color: green");
   }
 }
+
+retry.addEventListener("click", function () {
+  questionCounter = 0;
+  correctAnswers = 0;
+  renderQuestion();
+});

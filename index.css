@@ -14,8 +14,8 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
 }
@@ -27,6 +27,24 @@ ul {
   width: 100%;
 }
 
+.start-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.start-btn:hover {
+  background-color: black;
+  color: white;
+}
+h5 {
+  margin: 10px;
+}
+
 /* Content Container */
 .container {
   height: 500px;
@@ -34,7 +52,7 @@ ul {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 10px;
@@ -42,7 +60,7 @@ ul {
 
 /* Options/Choices */
 .choice {
-  background-color: white;
+  background-color: transparent;
   border: 1px solid black;
   padding: 20px 10px;
   width: 98%;
@@ -55,4 +73,24 @@ ul {
 .choice:hover {
   background-color: black;
   color: white;
+}
+
+/* Welcome */
+.welcome-description {
+  margin: 40px 0;
+}
+
+/* Questions */
+.question {
+  margin: 30px;
+}
+
+.failed {
+  margin-bottom: 10px;
+}
+
+.retry-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
