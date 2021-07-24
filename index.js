@@ -3,6 +3,7 @@ const qNum = document.getElementById("q-num");
 const question = document.getElementById("question");
 const container = document.getElementById("container");
 const choices = document.getElementById("choices");
+const retryBtn = document.getElementById("retry-btn");
 // Create Elements
 const welcome = document.createElement("h1");
 const welcomDescription = document.createElement("p");
@@ -10,7 +11,6 @@ const startBtn = document.createElement("button");
 const msg = document.createElement("h4");
 const correctCount = document.createElement("h5");
 const passed = document.createElement("p");
-const retry = document.createElement("button");
 let questionCounter = 0;
 let correctAnswers = 0;
 
@@ -99,10 +99,8 @@ function done() {
     passed.textContent = messages.passedNoText;
     passed.setAttribute("style", "color: red");
     passed.setAttribute("class", "failed");
-    retry.setAttribute("class", "retry-btn");
     // retry.setAttribute("onClick", "renderQuestion()");
     document.body.appendChild(passed);
-    retry.innerHTML = `<i class="fas fa-redo"></i>`;
     document.body.appendChild(retry);
   } else {
     passed.textContent = messages.passedYesText;
@@ -110,9 +108,3 @@ function done() {
     passed.setAttribute("style", "color: green");
   }
 }
-
-retry.addEventListener("click", function () {
-  questionCounter = 0;
-  correctAnswers = 0;
-  renderQuestion();
-});
