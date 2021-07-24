@@ -13,18 +13,20 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   font-family: "Roboto", sans-serif;
 }
 
 .container {
-  height: 700px;
-  width: 700px;
+  height: 500px;
+  width: 500px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 ul {
@@ -38,10 +40,10 @@ ul {
   background-color: white;
   border: 1px solid black;
   padding: 20px 5px;
-  width: 100%;
+  width: 98%;
   margin: 5px;
   text-align: left;
-  font-size: 15px;
+  font-size: 1rem;
   cursor: pointer;
 }
 
