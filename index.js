@@ -15,7 +15,7 @@ const questions = {
     "Who was the 40th U.S. Presodent?",
     "My Beautiful Dark Twisted Fantasy was an Hip-Hop album by which artist?",
   ],
-  answer: [0, 3, 1],
+  answer: [1, 4, 2],
   choiceOne: ["Blue Whale", "Georg W Bush Jr", "The Weekend"],
   choiceTwo: ["Giraffe", "Barack Obama", "Kanye West"],
   choiceThree: ["Titanosaurs", "Donald Trump", "The Dream"],
@@ -32,10 +32,10 @@ function renderQuestion() {
   qNum.textContent = questions.questionNum[questionCounter];
   question.textContent = questions.question[questionCounter];
   choices.innerHTML = `
-  <button id="0" class="choice one" onClick="selection(this.id)"><li>A. ${questions.choiceOne[questionCounter]}</li></button>
-  <button id="1" class="choice two" onClick="selection(this.id)"><li>B. ${questions.choiceTwo[questionCounter]}</li></button>
-  <button id="2" class="choice three" onClick="selection(this.id)"><li>C. ${questions.choiceThree[questionCounter]}</li></button>
-  <button id="3" class="choice four" onClick="selection(this.id)"><li>D. ${questions.choiceFour[questionCounter]}</li></button>
+  <button id="1" class="choice one" onClick="selection(this.id)"><li>A. ${questions.choiceOne[questionCounter]}</li></button>
+  <button id="2" class="choice two" onClick="selection(this.id)"><li>B. ${questions.choiceTwo[questionCounter]}</li></button>
+  <button id="3" class="choice three" onClick="selection(this.id)"><li>C. ${questions.choiceThree[questionCounter]}</li></button>
+  <button id="4" class="choice four" onClick="selection(this.id)"><li>D. ${questions.choiceFour[questionCounter]}</li></button>
   `;
 }
 
