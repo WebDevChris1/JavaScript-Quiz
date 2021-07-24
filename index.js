@@ -1,11 +1,12 @@
-let qNum = document.getElementById("q-num");
-let question = document.getElementById("question");
-let container = document.getElementById("container");
-let choices = document.getElementById("choices");
+const qNum = document.getElementById("q-num");
+const question = document.getElementById("question");
+const container = document.getElementById("container");
+const choices = document.getElementById("choices");
 let questionCounter = 0;
 let correctAnswers = 0;
 
-let questions = {
+// Setup Quiz details
+const questions = {
   howManyQuestions: 3,
   howManyToPass: 2,
   questionNum: ["Question 1", "Question 2", "Question 3"],
@@ -21,10 +22,12 @@ let questions = {
   choiceFour: ["Megaladon", "Ronald Reagen", "Taylor Swift"],
 };
 
+// Start Quiz
 if (questionCounter < questions.howManyQuestions) {
   renderQuestion();
 }
 
+// Render Questions
 function renderQuestion() {
   qNum.textContent = questions.questionNum[questionCounter];
   question.textContent = questions.question[questionCounter];
@@ -36,6 +39,7 @@ function renderQuestion() {
   `;
 }
 
+// User answer
 function selection(btnOption) {
   btnOption = parseInt(btnOption);
   if (btnOption === questions.answer[questionCounter]) {
@@ -51,6 +55,7 @@ function selection(btnOption) {
   }
 }
 
+// Display pass or fail
 function done() {
   const msg = document.createElement("h4");
   const correctCount = document.createElement("h5");
