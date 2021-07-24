@@ -27,20 +27,6 @@ ul {
   width: 100%;
 }
 
-.start-btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  border: 1px solid black;
-  font-weight: bold;
-}
-
-.start-btn:hover {
-  background-color: black;
-  color: white;
-}
 h5 {
   margin: 10px;
 }
@@ -83,4 +69,20 @@ h5 {
 /* Questions */
 .question {
   margin: 30px;
+}
+
+/* Buttons */
+.start-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+.start-btn:hover {
+  background-color: black;
+  color: white;
 }
