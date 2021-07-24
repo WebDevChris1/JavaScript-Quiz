@@ -4,8 +4,10 @@ let container = document.getElementById("container");
 let choices = document.getElementById("choices");
 let questionCounter = 0;
 let correctAnswers = 0;
+
 let questions = {
   howManyQuestions: 3,
+  howManyToPass: 2,
   questionNum: ["Question 1", "Question 2", "Question 3"],
   question: [
     "What was/is the largest animal ever lived?",
@@ -40,7 +42,7 @@ function selection(btnOption) {
     questionCounter += 1;
     correctAnswers += 1;
   } else {
-    console.log("Wrong!");
+    questionCounter += 1;
   }
   if (questionCounter < questions.howManyQuestions) {
     renderQuestion();
@@ -52,13 +54,26 @@ function selection(btnOption) {
 function done() {
   const msg = document.createElement("h4");
   const correctCount = document.createElement("h5");
+  const passed = document.createElement("p");
   const msgText = document.createTextNode("Thank You For Participating!");
   const msgTextCorrect = document.createTextNode(
-    "Correct Answers: " + correctAnswers
+    `Correct Answers: ${correctAnswers}`
   );
+  const passedYes = document.createTextNode("Passed");
+  const passedNo = document.createTextNode("Failed");
   container.setAttribute("style", "display: none");
   msg.appendChild(msgText);
   correctCount.appendChild(msgTextCorrect);
   document.body.appendChild(msg);
   document.body.appendChild(correctCount);
+
+  if (correctAnswers < questions.howManyToPass) {
+    passed.appendChild(passedNo);
+    passed.setAttribute("style", "color: red");
+    document.body.appendChild(passed);
+  } else {
+    passed.appendChild(passedYes);
+    document.body.appendChild(passed);
+    passed.setAttribute("style", "color: green");
+  }
 }

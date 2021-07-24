@@ -24,9 +24,10 @@ body {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+  padding: 0 10px;
 }
 
 ul {
@@ -34,12 +35,13 @@ ul {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border: 1px solid black;
 }
 
 .choice {
   background-color: white;
   border: 1px solid black;
-  padding: 20px 5px;
+  padding: 20px 10px;
   width: 98%;
   margin: 5px;
   text-align: left;
